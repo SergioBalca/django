@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hola {{name}}</h1>
+    <h3>Categorias</h3>
+    <ol>
+        {# Esto es un comentario que no aparecerá al inspeccionar la página desde el navegador #}
+        {% comment %}
+        Este comentario es multilinea. Tampoco aparece en el navegador
+        {% endcomment %}
+        {% for category in categories %}
+            {% if category == 'code' %}
+                {# el pipe (|), se utiliza para generar filtros #}
+                <li><u><b>{{category|upper}}</b></u></li>
+            {% else %}
+                <li>{{category}}</li>
+            {% endif %}
+        {% endfor %}
+        <h5>Total de categorias: {{categories|length}}</h5>
+    </ol>
+</body>
+</html>
